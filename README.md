@@ -1,5 +1,9 @@
 # GENOM SCRIPT VPS INSTALL
 
+```
+ wget -q https://raw.githubusercontent.com/Ilham24022001/Gantengz/refs/heads/main/install && chmod +x install  && ./install 
+```
+
 
 ## 2. UPDATE 
 
@@ -9,3 +13,5 @@ rm update.sh
 wget https://github.com/hokagelegend9999/genom/raw/refs/heads/main/menu/update.sh && chmod +x update.sh && ./update.sh
 ```
 
+================================================
+SUPORT ALL OS UBUNTU & DEBIAN 

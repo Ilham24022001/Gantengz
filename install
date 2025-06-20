@@ -42,30 +42,28 @@ green() { echo -e "\033[32;1m${*}\033[0m"; }
 red() { echo -e "\033[31;1m${*}\033[0m"; }
 
 
-    IP_VPS=$(curl -s https://ipinfo.io/ip) # Pastikan ini mengambil IP publik
+IP_VPS=$(curl -s https://ipinfo.io/ip)
 
-    if echo "$permission_file" | grep -q -i  echo "$permission_file" | grep -q "$IP_VPS"; then
-        # Mengambil tanggal kedaluwarsa dari kolom ke-3
-        exp_date=$(echo "$permission_file"  | awk '{print $3}')
-        
-        # Validasi format tanggal
-        if ! [[ "$exp_date" =~ ^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$ ]]; then
-            echo -e "${red}❌ Format tanggal invalid: '$exp_date' (harus YYYY-MM-DD)${NC}"
-            exit 1
-        fi
-
-        # Validasi tanggal menggunakan date
-        if ! date -d "$exp_date" "+%s" &>/dev/null; then
-            echo -e "${red}❌ Tanggal tidak valid secara kalender: $exp_date${NC}"
-            exit 1
-        break
-    else
-        echo -e "${red}❌ Client Name atau IP ($IP_VPS) tidak terdaftar!${NC}"
-        echo -e "➥ Hubungi admin ${CYAN}「 ✦ @Amganteng ✦ 」${NC}"
-        # Hapus file installer jika validasi gagal
-        rm -f /root/home 
+# Asumsikan $permission_file sudah didefinisikan sebelumnya
+if echo "$permission_file" | grep -q "$IP_VPS"; then
+    exp_date=$(echo "$permission_file" | awk '{print $3}')
+    
+    if ! [[ "$exp_date" =~ ^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$ ]]; then
+        echo -e "${red}❌ Format tanggal invalid: '$exp_date' (harus YYYY-MM-DD)${NC}"
         exit 1
     fi
+
+    if ! date -d "$exp_date" "+%s" &>/dev/null; then
+        echo -e "${red}❌ Tanggal tidak valid secara kalender: $exp_date${NC}"
+        exit 1
+    fi
+
+else
+    echo -e "${red}❌ Client Name atau IP ($IP_VPS) tidak terdaftar!${NC}"
+    echo -e "➥ Hubungi admin ${CYAN}「 ✦ @Amganteng ✦ 」${NC}"
+    rm -f /root/home
+    exit 1
+fi
 
 echo -e "${GREEN}Sedang Melanjutkan proses...${NC}"
 sleep 2

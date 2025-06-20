@@ -41,34 +41,7 @@ yellow() { echo -e "\033[33;1m${*}\033[0m"; }
 green() { echo -e "\033[32;1m${*}\033[0m"; }
 red() { echo -e "\033[31;1m${*}\033[0m"; }
 
-# --- Validasi Awal ---
-echo -e "${GREEN}♻️ Check Validasi Masuk...${NC}"
-sleep 3
-clear
 
-# Pastikan direktori yang dibutuhkan ada
-mkdir -p /etc/data
-
-# --- Mendapatkan IP Publik Pengguna ---
-user_ip=$(curl -s https://ipinfo.io/ip)
-
-# --- Meminta Nama Client dan Memvalidasi ---
-while true; do
-    read -rp $'\033[0;32mMasukkan Nama Client:\033[0m ' client_name
-
-    # Validasi Nama Client
-    if [[ -z "$client_name" ]]; then
-        echo "Nama Client tidak boleh kosong. Silakan masukkan kembali."
-        continue
-    elif [[ ! "$client_name" =~ ^[A-Za-z]+$ ]]; then
-        echo "Nama Client hanya boleh berisi huruf. Silakan masukkan kembali."
-        continue
-    fi
-
-    # Menggunakan curl untuk memeriksa apakah client_name ada dalam file permission.txt
-    permission_file=$(curl -s https://raw.githubusercontent.com/hokagelegend9999/genom/refs/heads/main/)
-    
-    # Mengambil IP_VPS juga untuk validasi di izin.txt
     IP_VPS=$(curl -s https://ipinfo.io/ip) # Pastikan ini mengambil IP publik
 
     if echo "$permission_file" | grep -q -i "$client_name" && echo "$permission_file" | grep -q "$IP_VPS"; then

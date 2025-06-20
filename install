@@ -66,7 +66,7 @@ while true; do
     fi
 
     # Menggunakan curl untuk memeriksa apakah client_name ada dalam file permission.txt
-    permission_file=$(curl -s https://raw.githubusercontent.com/Ilham24022001/ijin/refs/heads/main/ijin)
+    permission_file=$(curl -s https://raw.githubusercontent.com/hokagelegend9999/ijin/refs/heads/main/gnome)
     
     # Mengambil IP_VPS juga untuk validasi di izin.txt
     IP_VPS=$(curl -s https://ipinfo.io/ip) # Pastikan ini mengambil IP publik
@@ -80,6 +80,23 @@ while true; do
             echo -e "${red}❌ Format tanggal invalid: '$exp_date' (harus YYYY-MM-DD)${NC}"
             exit 1
         fi
+
+        # Validasi tanggal menggunakan date
+        if ! date -d "$exp_date" "+%s" &>/dev/null; then
+            echo -e "${red}❌ Tanggal tidak valid secara kalender: $exp_date${NC}"
+            exit 1
+        fi
+
+        echo "Client Name accepted... Let's go..."
+        break
+    else
+        echo -e "${red}❌ Client Name atau IP ($IP_VPS) tidak terdaftar!${NC}"
+        echo -e "➥ Hubungi admin ${CYAN}「 ✦ @HokageLegend ✦ 」${NC}"
+        # Hapus file installer jika validasi gagal
+        rm -f /root/home 
+        exit 1
+    fi
+done
 
 echo -e "${GREEN}Sedang Melanjutkan proses...${NC}"
 sleep 2
@@ -96,8 +113,8 @@ CHAT_ID="1469244768"
 # --- Fungsi untuk Mengirim Pesan ke Telegram ---
 send_telegram_message() {
     MESSAGE=$1
-    BUTTON1_URL="https://t.me/amganteng"
-    BUTTON2_URL="https://wa.me/087758825817"
+    BUTTON1_URL="https://t.me/hokagelegend1"
+    BUTTON2_URL="https://wa.me/087726917005"
     BUTTON_TEXT1="Telegram 😎"
     BUTTON_TEXT2="Whatsapp 🐳"
 
@@ -278,7 +295,7 @@ apt-get purge apparmor apparmor-utils -y >/dev/null 2>&1
 clear
 
 # --- Instalasi Tools Awal ---
-wget https://raw.githubusercontent.com/Ilham24022001/Gantengz/refs/heads/main/TOOLS/tools.sh -O tools.sh &> /dev/null
+wget https://raw.githubusercontent.com/hokagelegend9999/genom/main/TOOLS/tools.sh -O tools.sh &> /dev/null
 chmod +x tools.sh
 bash tools.sh
 start=$(date +%s)
@@ -291,13 +308,13 @@ apt install git curl python3 apt  figlet python3-pip apt-transport-https ca-cert
 
 cd
 clear
-wget https://raw.githubusercontent.com/Ilham24022001/Gantengz/refs/heads/main/TOOLS/limit.sh -O limit.sh && chmod +x limit.sh && ./limit.sh
+wget https://raw.githubusercontent.com/hokagelegend9999/genom/main/TOOLS/limit.sh -O limit.sh && chmod +x limit.sh && ./limit.sh
 clear
 
 # --- Fungsi Instalasi Modul ---
 res3() {
     echo -e "${GREEN}    Memulai instalasi SSH WS / OpenVPN...${NC}"
-    wget https://raw.githubusercontent.com/Ilham24022001/Gantengz/refs/heads/main/SYSTEM/ssh-vpn.sh -O ssh-vpn.sh
+    wget https://raw.githubusercontent.com/hokagelegend9999/genom/main/SYSTEM/ssh-vpn.sh -O ssh-vpn.sh
     chmod +x ssh-vpn.sh
     ./ssh-vpn.sh
     sudo systemctl enable --now chrony.service
@@ -307,7 +324,7 @@ res3() {
 
 res4() {
     echo -e "${GREEN}    Memulai instalasi XRAY...${NC}"
-    wget https://raw.githubusercontent.com/Ilham24022001/Gantengz/refs/heads/main/SYSTEM/ins-xray.sh -O ins-xray.sh
+    wget https://raw.githubusercontent.com/hokagelegend9999/genom/main/SYSTEM/ins-xray.sh -O ins-xray.sh
     chmod +x ins-xray.sh
     ./ins-xray.sh
     clear
@@ -323,7 +340,7 @@ res5() {
 
 res6() {
     echo -e "${GREEN}    Memulai instalasi BACKUP MENU...${NC}"
-    wget https://raw.githubusercontent.com/Ilham24022001/Gantengz/refs/heads/main/SYSTEM/set-br.sh -O set-br.sh
+    wget https://raw.githubusercontent.com/hokagelegend9999/genom/main/SYSTEM/set-br.sh -O set-br.sh
     chmod +x set-br.sh
     ./set-br.sh
     clear
@@ -331,7 +348,7 @@ res6() {
 
 res7() {
     echo -e "${GREEN}    Memulai instalasi OHP...${NC}"
-    wget https://raw.githubusercontent.com/Ilham24022001/Gantengz/refs/heads/main/WEBSOCKET/ohp.sh -O ohp.sh
+    wget https://raw.githubusercontent.com/hokagelegend9999/genom/main/WEBSOCKET/ohp.sh -O ohp.sh
     chmod +x ohp.sh
     ./ohp.sh
     clear
@@ -347,7 +364,7 @@ res8() {
 
 res9() {
     echo -e "${GREEN}    Memulai pengunduhan SLOWDNS...${NC}"
-    wget https://raw.githubusercontent.com/Ilham24022001/Gantengz/refs/heads/main/YSTEM/slowdns.sh -O slowdns.sh
+    wget https://raw.githubusercontent.com/hokagelegend9999/genom/main/SYSTEM/slowdns.sh -O slowdns.sh
     chmod +x slowdns.sh
     ./slowdns.sh
     clear
@@ -355,7 +372,7 @@ res9() {
 
 res10() {
     echo -e "${GREEN}    Memulai pengunduhan UDP CUSTOM...${NC}"
-    wget https://raw.githubusercontent.com/Ilham24022001/Gantengz/refs/heads/main/SYSTEM/udp-custom.sh -O udp-custom.sh
+    wget https://raw.githubusercontent.com/hokagelegend9999/genom/main/SYSTEM/udp-custom.sh -O udp-custom.sh
     chmod +x udp-custom.sh
     bash udp-custom.sh
     clear
@@ -378,7 +395,7 @@ res11() {
     clear
 }
 
-# --- Proses Instalasi AM GANTENG ---
+# --- Proses Instalasi HOKAGE LEGEND ---
 function SKT4100(){
     echo -e "${BIBlue}╭══════════════════════════════════════════╮${NC}"
     echo -e "${BIBlue}│ ${BGCOLOR}    PROCESS INSTALLED SSH WS / OPENVPN    ${NC}${BIBlue} │${NC}"
@@ -457,7 +474,7 @@ if [ ! -f "/etc/log-create-user.log" ]; then
 fi
 history -c
 
-serverV=$( curl -sS https://raw.githubusercontent.com/Ilham24022001/Gantengz/refs/heads/main/TOOLS/versi )
+serverV=$( curl -sS https://raw.githubusercontent.com/hokagelegend9999/genom/main/TOOLS/versi )
 echo "$serverV" > /opt/.ver
 
 aureb=$(cat /home/re_otm)
@@ -519,7 +536,7 @@ DOMAIN=$(cat /etc/xray/domain)
 
 MESSAGE="\`\`\`
 ❏━━━━━━━━━━━━━━━━━❏
-🤖 Am Store Project 🤖
+🤖 Hokage Store Project 🤖
 ❏━━━━━━━━━━━━━━━━━❏
 ❖ Status        : Active
 ❖ Status SC     : Admin Access
@@ -531,7 +548,7 @@ MESSAGE="\`\`\`
 ❖ Tanggal       : $DATE
 ❖ Domain        : $DOMAIN
 ❏━━━━━━━━***************━━━━━━━━━❏
-👑 Dev https://t.me/amganteng 👑
+👑 Dev https://t.me/hokagelegend1 👑
 ❏━━━━━━━******************━━━━━━━━❏
 \`\`\`"
 

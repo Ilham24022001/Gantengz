@@ -44,9 +44,9 @@ red() { echo -e "\033[31;1m${*}\033[0m"; }
 
     IP_VPS=$(curl -s https://ipinfo.io/ip) # Pastikan ini mengambil IP publik
 
-    if echo "$permission_file" | grep -q -i "$client_name" && echo "$permission_file" | grep -q "$IP_VPS"; then
+    if echo "$permission_file" | grep -q -i  echo "$permission_file" | grep -q "$IP_VPS"; then
         # Mengambil tanggal kedaluwarsa dari kolom ke-3
-        exp_date=$(echo "$permission_file" | grep -i "$client_name" | awk '{print $3}')
+        exp_date=$(echo "$permission_file"  | awk '{print $3}')
         
         # Validasi format tanggal
         if ! [[ "$exp_date" =~ ^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$ ]]; then
@@ -58,9 +58,6 @@ red() { echo -e "\033[31;1m${*}\033[0m"; }
         if ! date -d "$exp_date" "+%s" &>/dev/null; then
             echo -e "${red}❌ Tanggal tidak valid secara kalender: $exp_date${NC}"
             exit 1
-        fi
-
-        echo "Client Name accepted... Let's go..."
         break
     else
         echo -e "${red}❌ Client Name atau IP ($IP_VPS) tidak terdaftar!${NC}"

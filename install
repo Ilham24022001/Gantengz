@@ -394,6 +394,14 @@ res11() {
      sudo systemctl enable nginx
     clear
 }
+res12() {
+ echo -e "${GREEN}PEMASANGAN MENU...!!!${NC}"
+
+ https://raw.githubusercontent.com/Ilham24022001/Gantengz/refs/heads/main/menu/update.sh
+ chmod +x update.sh
+  ./update.sh
+    clear
+}
 
 # --- Proses Instalasi HOKAGE LEGEND ---
 function SKT4100(){
@@ -439,6 +447,10 @@ function SKT4100(){
     
     echo -e "${BIBlue}╭══════════════════════════════════════════╮${NC}"
     echo -e "${BIBlue}│ ${BGCOLOR}    CONFIGURING DROPBEAR              ${NC}${BIBlue} │${NC}"
+    echo -e "${BIBlue}╰══════════════════════════════════════════╯${NC}"
+    res11
+ echo -e "${BIBlue}╭══════════════════════════════════════════╮${NC}"
+    echo -e "${BIBlue}│ ${BGCOLOR}    PASANG MENU              ${NC}${BIBlue} │${NC}"
     echo -e "${BIBlue}╰══════════════════════════════════════════╯${NC}"
     res11
 }

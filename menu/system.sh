@@ -99,7 +99,7 @@ WH='\033[1;37m'
 
 #===============================================================================#
 
-function skt-theme() {
+function theme() {
 
 # ==================== CONFIGURATION ====================
 THEME_DIR="/etc/phreakers/theme"
@@ -377,7 +377,7 @@ menu
 
 #===============================================================================#
 
-function skt-gotopp(){
+function gotopp(){
 cd
 if [[ -e /usr/bin/gotop ]]; then
 gotop

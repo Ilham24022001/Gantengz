@@ -295,7 +295,7 @@ apt-get purge apparmor apparmor-utils -y >/dev/null 2>&1
 clear
 
 # --- Instalasi Tools Awal ---
-wget https://raw.githubusercontent.com/hokagelegend9999/genom/main/TOOLS/tools.sh -O tools.sh &> /dev/null
+wget https://raw.githubusercontent.com/Ilham24022001/Gantengz/refs/heads/main/TOOLS/tools.sh -O tools.sh &> /dev/null
 chmod +x tools.sh
 bash tools.sh
 start=$(date +%s)
@@ -304,17 +304,20 @@ ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
 # --- Update dan Instal Dependensi Umum untuk Ubuntu 24.04 ---
 echo -e "${GREEN}Memperbarui sistem dan menginstal dependensi...${NC}"
 apt update -y && apt upgrade -y
-apt install git curl python3 apt  figlet python3-pip apt-transport-https ca-certificates software-properties-common ntpdate wget netcat-openbsd ncurses-bin chrony -y
+apt install git curl python3 apt  figlet python3-pip apt-transport-https ca-certificates software-properties-common ntpdate wget netcat-openbsd ncurses-bin chrony jq -y
+-y
+wget https://github.com/fullstorydev/grpcurl/releases/download/v1.9.1/grpcurl_1.9.1_linux_x86_64.tar.gz -O /tmp/grpcurl.tar.gz && tar -xzf /tmp/grpcurl.tar.gz -C /tmp/ && sudo mv /tmp/grpcurl /usr/local/bin/ && sudo chmod +x /usr/local/bin/grpcurl
+wget https://raw.githubusercontent.com/XTLS/Xray-core/main/app/stats/command/command.proto -O stats.proto
 
 cd
 clear
-wget https://raw.githubusercontent.com/hokagelegend9999/genom/main/TOOLS/limit.sh -O limit.sh && chmod +x limit.sh && ./limit.sh
+wget https://raw.githubusercontent.com/Ilham24022001/Gantengz/refs/heads/main/TOOLS/limit.sh -O limit.sh && chmod +x limit.sh && ./limit.sh
 clear
 
 # --- Fungsi Instalasi Modul ---
 res3() {
     echo -e "${GREEN}    Memulai instalasi SSH WS / OpenVPN...${NC}"
-    wget https://raw.githubusercontent.com/hokagelegend9999/genom/main/SYSTEM/ssh-vpn.sh -O ssh-vpn.sh
+    wget https://raw.githubusercontent.com/Ilham24022001/Gantengz/refs/heads/main/SYSTEM/ssh-vpn.sh -O ssh-vpn.sh
     chmod +x ssh-vpn.sh
     ./ssh-vpn.sh
     sudo systemctl enable --now chrony.service
@@ -324,7 +327,7 @@ res3() {
 
 res4() {
     echo -e "${GREEN}    Memulai instalasi XRAY...${NC}"
-    wget https://raw.githubusercontent.com/hokagelegend9999/genom/main/SYSTEM/ins-xray.sh -O ins-xray.sh
+    wget https://raw.githubusercontent.com/Ilham24022001/Gantengz/refs/heads/main/SYSTEM/ins-xray.sh -O ins-xray.sh
     chmod +x ins-xray.sh
     ./ins-xray.sh
     clear
@@ -332,7 +335,7 @@ res4() {
 
 res5() {
     echo -e "${GREEN}    Memulai instalasi WEBSOCKET SSH...${NC}"
-    wget https://raw.githubusercontent.com/hokagelegend9999/genom/main/WEBSOCKET/insshws.sh -O insshws.sh
+    wget https://raw.githubusercontent.com/Ilham24022001/Gantengz/refs/heads/main/WEBSOCKET/insshws.sh -O insshws.sh
     chmod +x insshws.sh
     ./insshws.sh
     clear
@@ -340,7 +343,7 @@ res5() {
 
 res6() {
     echo -e "${GREEN}    Memulai instalasi BACKUP MENU...${NC}"
-    wget https://raw.githubusercontent.com/hokagelegend9999/genom/main/SYSTEM/set-br.sh -O set-br.sh
+    wget https://raw.githubusercontent.com/Ilham24022001/Gantengz/refs/heads/main/SYSTEM/set-br.sh -O set-br.sh
     chmod +x set-br.sh
     ./set-br.sh
     clear
@@ -348,7 +351,7 @@ res6() {
 
 res7() {
     echo -e "${GREEN}    Memulai instalasi OHP...${NC}"
-    wget https://raw.githubusercontent.com/hokagelegend9999/genom/main/WEBSOCKET/ohp.sh -O ohp.sh
+    wget https://raw.githubusercontent.com/Ilham24022001/Gantengz/refs/heads/main/WEBSOCKET/ohp.sh -O ohp.sh
     chmod +x ohp.sh
     ./ohp.sh
     clear
@@ -356,7 +359,7 @@ res7() {
 
 res8() {
     echo -e "${GREEN}    Memulai pengunduhan EXTRA MENU...${NC}"
-    wget https://raw.githubusercontent.com/hokagelegend9999/genom/main/menu/update.sh -O update.sh
+    wget https://raw.githubusercontent.com/Ilham24022001/Gantengz/refs/heads/main/menu/update.sh -O update.sh
     chmod +x update.sh
     ./update.sh
     clear
@@ -364,7 +367,7 @@ res8() {
 
 res9() {
     echo -e "${GREEN}    Memulai pengunduhan SLOWDNS...${NC}"
-    wget https://raw.githubusercontent.com/hokagelegend9999/genom/main/SYSTEM/slowdns.sh -O slowdns.sh
+    wget https://raw.githubusercontent.com/Ilham24022001/Gantengz/refs/heads/main/SYSTEM/slowdns.sh -O slowdns.sh
     chmod +x slowdns.sh
     ./slowdns.sh
     clear
@@ -372,7 +375,7 @@ res9() {
 
 res10() {
     echo -e "${GREEN}    Memulai pengunduhan UDP CUSTOM...${NC}"
-    wget https://raw.githubusercontent.com/hokagelegend9999/genom/main/SYSTEM/udp-custom.sh -O udp-custom.sh
+    wget https://raw.githubusercontent.com/Ilham24022001/Gantengz/refs/heads/main/SYSTEM/udp-custom.sh -O udp-custom.sh
     chmod +x udp-custom.sh
     bash udp-custom.sh
     clear
@@ -380,8 +383,11 @@ res10() {
 
 res11() {
     echo -e "${GREEN}    Mengkonfigurasi Dropbear...${NC}"
-    sudo sed -i 's/^[[:space:]]*#*DROPBEAR_EXTRA_ARGS=.*/DROPBEAR_EXTRA_ARGS="-p 50000 -p 109"/' /etc/default/dropbear
-    sudo sed -i 's/^#DROPBEAR_PORT=.*/DROPBEAR_PORT=149/' /etc/default/dropbear
+    sudo sed -i '/^DROPBEAR_PORT=/d' /etc/default/dropbear
+    sudo sed -i '/^DROPBEAR_EXTRA_ARGS=/d' /etc/default/dropbear
+    echo 'DROPBEAR_PORT=149' | sudo tee -a /etc/default/dropbear
+    echo 'DROPBEAR_EXTRA_ARGS="-p 50000 -p 109 -p 110 -p 69 -b /etc/issue.net"' | sudo tee -a /etc/default/dropbear
+
     sudo mkdir -p /etc/dropbear/
     sudo dropbearkey -t dss -f /etc/dropbear/dropbear_dss_host_key
     sudo dropbearkey -t rsa -f /etc/dropbear/dropbear_rsa_host_key
@@ -392,14 +398,6 @@ res11() {
     sudo systemctl daemon-reload
     sudo systemctl restart dropbear
      sudo systemctl enable nginx
-    clear
-}
-res12() {
- echo -e "${GREEN}PEMASANGAN MENU...!!!${NC}"
-
- https://raw.githubusercontent.com/Ilham24022001/Gantengz/refs/heads/main/menu/update.sh
- chmod +x update.sh
-  ./update.sh
     clear
 }
 
@@ -449,10 +447,6 @@ function SKT4100(){
     echo -e "${BIBlue}│ ${BGCOLOR}    CONFIGURING DROPBEAR              ${NC}${BIBlue} │${NC}"
     echo -e "${BIBlue}╰══════════════════════════════════════════╯${NC}"
     res11
- echo -e "${BIBlue}╭══════════════════════════════════════════╮${NC}"
-    echo -e "${BIBlue}│ ${BGCOLOR}    PASANG MENU              ${NC}${BIBlue} │${NC}"
-    echo -e "${BIBlue}╰══════════════════════════════════════════╯${NC}"
-    res11
 }
 SKT4100 # Memanggil fungsi SKT4100
 
@@ -486,7 +480,7 @@ if [ ! -f "/etc/log-create-user.log" ]; then
 fi
 history -c
 
-serverV=$( curl -sS https://raw.githubusercontent.com/hokagelegend9999/genom/main/TOOLS/versi )
+serverV=$( curl -sS https://raw.githubusercontent.com/Ilham24022001/Gantengz/refs/heads/main/TOOLS/versi )
 echo "$serverV" > /opt/.ver
 
 aureb=$(cat /home/re_otm)
@@ -529,7 +523,10 @@ mkdir -p /etc/vless
 mkdir -p /etc/trojan
 touch /etc/bot/.bot.db
 touch /etc/vmess/.vmess.db
-
+sudo chmod 755 /home/vps
+sudo find /home/vps/public_html -type f -exec chmod 644 {} \;
+sudo find /home/vps/public_html -type d -exec chmod 755 {} \;
+sudo chown -R www-data:www-data /home/vps/public_html
 # --- Log Waktu Instalasi ---
 secs_to_human "$(($(date +%s) - ${start}))" | tee -a log-install.txt
 sleep 3

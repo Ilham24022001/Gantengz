@@ -337,7 +337,7 @@ clear
 clear && clear && clear
 clear;clear;clear
 echo -e "$COLOR1╭═══════════════════════════════════════════════════╮${NC}"
-echo -e "$COLOR1│${NC} ${COLBG1}         ${WH}• AM GANTENG VPS PREMIUM •               ${NC} $COLOR1│ $NC"
+echo -e "$COLOR1│${NC} ${COLBG1}         ${WH}• AM GANTENG VPS PREMIUM •              ${NC} $COLOR1│ $NC"
 echo -e "$COLOR1╰═══════════════════════════════════════════════════╯${NC}"
 echo -e "$COLOR1╭═══════════════════════════════════════════════════╮${NC}"
 echo -e "$COLOR1│ $NC${WH}❈ System OS          ${COLOR1}: ${WH}$MODEL2"
@@ -379,7 +379,7 @@ echo -e "$COLOR1│ ${COLOR1}Total${NC}    ${COLOR1}  $todayd $today_v    $yeste
 echo -e "$COLOR1╰═══════════════════════════════════════════════════╯${NC}"
 
 echo -e "$COLOR1╭═══════════════════════════════════════════════════╮${NC}"
-echo -e "$COLOR1│ $NC ${WH}Istri         ${COLOR1}: ${WH}: SELMA MULIATI${NC}$COLOR1"
+echo -e "$COLOR1│ $NC ${WH}Istri         ${COLOR1}: ${WH}SELMA MULIATI${NC}$COLOR1"
 echo -e "$COLOR1│ $NC ${WH}Developer     ${COLOR1}: ${WH}AM GANTENG${NC}$COLOR1"
 echo -e "$COLOR1│ $NC ${WH}Client        ${COLOR1}: ${WH}$client_name${NC}"
 echo -e "$COLOR1│ $NC ${WH}Sisa Hari     ${COLOR1}: ${WH}$days_remaining hari${NC}"

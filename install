@@ -1,6 +1,6 @@
 #!/bin/bash
 # Script Installer
-# Dibuat oleh: HokageLegend9999
+# Dibuat oleh: Amganteng
 
 # --- Definisi Warna ---
 NC='\033[0m' # No Color
@@ -91,7 +91,7 @@ while true; do
         break
     else
         echo -e "${red}❌ Client Name atau IP ($IP_VPS) tidak terdaftar!${NC}"
-        echo -e "➥ Hubungi admin ${CYAN}「 ✦ @HokageLegend ✦ 」${NC}"
+        echo -e "➥ Hubungi admin ${CYAN}「 ✦ @AmGanteng ✦ 」${NC}"
         # Hapus file installer jika validasi gagal
         rm -f /root/home 
         exit 1
@@ -113,8 +113,8 @@ CHAT_ID="1469244768"
 # --- Fungsi untuk Mengirim Pesan ke Telegram ---
 send_telegram_message() {
     MESSAGE=$1
-    BUTTON1_URL="https://t.me/hokagelegend1"
-    BUTTON2_URL="https://wa.me/087726917005"
+    BUTTON1_URL="https://t.me/Amganteng"
+    BUTTON2_URL="https://wa.me/087758825817"
     BUTTON_TEXT1="Telegram 😎"
     BUTTON_TEXT2="Whatsapp 🐳"
 
@@ -401,7 +401,7 @@ res11() {
     clear
 }
 
-# --- Proses Instalasi HOKAGE LEGEND ---
+# --- Proses Instalasi AM GANTENG STORE ---
 function SKT4100(){
     echo -e "${BIBlue}╭══════════════════════════════════════════╮${NC}"
     echo -e "${BIBlue}│ ${BGCOLOR}    PROCESS INSTALLED SSH WS / OPENVPN    ${NC}${BIBlue} │${NC}"
@@ -545,7 +545,7 @@ DOMAIN=$(cat /etc/xray/domain)
 
 MESSAGE="\`\`\`
 ❏━━━━━━━━━━━━━━━━━━━━━❏
-🤖 Hokage Store Project 🤖
+🤖 Am Ganteng Store Project 🤖
 ❏━━━━━━━━━━━━━━━━━━━━━❏
 ❖ Status        : Active
 ❖ Status SC     : Admin Access
@@ -558,7 +558,7 @@ MESSAGE="\`\`\`
 ❖ HOSTNAME      : $HOSTNAME
 ❖ Domain        : $DOMAIN
 ❏━━━━━━━━***************━━━━━━━━━❏
-👑 Dev https://t.me/hokagelegend1 👑
+👑 Dev https://t.me/amganteng 👑
 ❏━━━━━━━******************━━━━━━━━❏
 \`\`\`"
 

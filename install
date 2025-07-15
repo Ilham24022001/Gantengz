@@ -536,6 +536,7 @@ cd
 # --- Kirim Pesan Sukses ke Telegram ---
 IPVPS=$(curl -s https://ipinfo.io/ip)
 HOSTNAME=$(hostname)
+CLIENT=$(client_name)
 OS=$(lsb_release -d | awk '{print $2,$3,$4}')
 ISP=$(curl -s https://ipinfo.io/org | awk '{print $2,$3,$4}')
 REGION=$(curl -s ipinfo.io/region)
@@ -556,6 +557,7 @@ MESSAGE="\`\`\`
 ❖ Waktu         : $TIME
 ❖ Tanggal       : $DATE
 ❖ HOSTNAME      : $HOSTNAME
+❖ CLIENT        : $client_name
 ❖ Domain        : $DOMAIN
 ❏━━━━━━━━***************━━━━━━━━━❏
 👑 Dev https://t.me/amganteng 👑

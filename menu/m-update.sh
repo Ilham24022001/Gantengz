@@ -64,6 +64,8 @@ rm -rf trojan-online
 rm -rf online
 rm -rf ceklimit
 rm -rf atur-backup
+rm -rf online-trojan
+online-xray
 
 fun_bar() {
     CMD[0]="$1"
@@ -127,6 +129,8 @@ wget -q -O /usr/bin/trojan-online "https://raw.githubusercontent.com/Ilham240220
 wget -q -O /usr/bin/ceklimit "https://raw.githubusercontent.com/Ilham24022001/Gantengz/refs/heads/main/menu/ceklimit" && chmod +x /usr/bin/ceklimit
 wget -q -O /usr/bin/online "https://raw.githubusercontent.com/Ilham24022001/Gantengz/refs/heads/main/menu/online" && chmod +x /usr/bin/online
 wget -q -O /usr/bin/atur-backup "https://raw.githubusercontent.com/Ilham24022001/Gantengz/refs/heads/main/menu/atur-backup" && chmod +x /usr/bin/atur-backup
+wget -q -O /usr/bin/online-trojan "https://raw.githubusercontent.com/Ilham24022001/Gantengz/refs/heads/main/menu/online-trojan" && chmod +x /usr/bin/online-trojan
+wget -q -O /usr/bin/online-xray "https://raw.githubusercontent.com/Ilham24022001/Gantengz/refs/heads/main/menu/online-xray" && chmod +x /usr/bin/online-xray
 
 chmod +x m-tcp
 chmod +x m-theme
@@ -176,6 +180,8 @@ chmod +x trojan-online
 chmod +x ceklimit
 chmod +x online
 chmod +x atur-backup
+online-trojan
+online-xray
 clear
 
 }

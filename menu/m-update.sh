@@ -63,6 +63,7 @@ rm -rf insshws
 rm -rf trojan-online
 rm -rf online
 rm -rf ceklimit
+rm -rf atur-backup
 
 fun_bar() {
     CMD[0]="$1"
@@ -125,6 +126,7 @@ wget -q -O /usr/bin/trial "https://raw.githubusercontent.com/Ilham24022001/Gante
 wget -q -O /usr/bin/trojan-online "https://raw.githubusercontent.com/Ilham24022001/Gantengz/refs/heads/main/menu/trojan-online" && chmod +x /usr/bin/trojan-online
 wget -q -O /usr/bin/ceklimit "https://raw.githubusercontent.com/Ilham24022001/Gantengz/refs/heads/main/menu/ceklimit" && chmod +x /usr/bin/ceklimit
 wget -q -O /usr/bin/online "https://raw.githubusercontent.com/Ilham24022001/Gantengz/refs/heads/main/menu/online" && chmod +x /usr/bin/online
+wget -q -O /usr/bin/atur-backup "https://raw.githubusercontent.com/Ilham24022001/Gantengz/refs/heads/main/menu/atur-backup" && chmod +x /usr/bin/atur-backup
 
 chmod +x m-tcp
 chmod +x m-theme
@@ -173,6 +175,7 @@ chmod +x insshws
 chmod +x trojan-online
 chmod +x ceklimit
 chmod +x online
+chmod +x atur-backup
 clear
 
 }
